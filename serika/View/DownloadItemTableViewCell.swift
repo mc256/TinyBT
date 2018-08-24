@@ -43,13 +43,10 @@ class DownloadItemTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setData(title: String, progress: Float, Up:String, Down:String, States: DownloadItemStatusCase){
-        
-    }
     
 }
 
-public enum DownloadItemStatusCase: Int{
+public enum DownloadStatusCase: Int{
     case pending = 0
     case downloading = 1
     case finished = 2

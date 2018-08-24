@@ -10,8 +10,8 @@
 		101BD78667C0F8C1A18D105F /* Pods_serika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */; };
 		8B1D1D562130840B0064F1D3 /* DownloadItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */; };
 		8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D57213086B80064F1D3 /* MainViewController.swift */; };
+		8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */; };
 		8BDF7214213063A300BF2979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF7213213063A300BF2979 /* AppDelegate.swift */; };
-		8BDF7216213063A300BF2979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF7215213063A300BF2979 /* ViewController.swift */; };
 		8BDF7219213063A300BF2979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDF7217213063A300BF2979 /* Main.storyboard */; };
 		8BDF721B213063A400BF2979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BDF721A213063A400BF2979 /* Assets.xcassets */; };
 		8BDF721E213063A400BF2979 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDF721C213063A400BF2979 /* LaunchScreen.storyboard */; };
@@ -21,9 +21,9 @@
 		73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadItemTableViewCell.swift; sourceTree = "<group>"; };
 		8B1D1D57213086B80064F1D3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8BDF7210213063A300BF2979 /* serika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDF7213213063A300BF2979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8BDF7215213063A300BF2979 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8BDF7218213063A300BF2979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BDF721A213063A400BF2979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BDF721D213063A400BF2979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -75,6 +75,7 @@
 			children = (
 				8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */,
 				8B1D1D57213086B80064F1D3 /* MainViewController.swift */,
+				8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -102,7 +103,6 @@
 			children = (
 				8B1D1D54213083910064F1D3 /* View */,
 				8BDF7213213063A300BF2979 /* AppDelegate.swift */,
-				8BDF7215213063A300BF2979 /* ViewController.swift */,
 				8BDF7217213063A300BF2979 /* Main.storyboard */,
 				8BDF721F213063A400BF2979 /* Info.plist */,
 				8B1D1D53213077BA0064F1D3 /* Assert */,
@@ -229,8 +229,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B1D1D562130840B0064F1D3 /* DownloadItemTableViewCell.swift in Sources */,
-				8BDF7216213063A300BF2979 /* ViewController.swift in Sources */,
 				8BDF7214213063A300BF2979 /* AppDelegate.swift in Sources */,
+				8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */,
 				8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
