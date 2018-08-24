@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		101BD78667C0F8C1A18D105F /* Pods_serika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */; };
 		8BDF7214213063A300BF2979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF7213213063A300BF2979 /* AppDelegate.swift */; };
 		8BDF7216213063A300BF2979 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF7215213063A300BF2979 /* ViewController.swift */; };
 		8BDF7219213063A300BF2979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDF7217213063A300BF2979 /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDF7210213063A300BF2979 /* serika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDF7213213063A300BF2979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BDF7215213063A300BF2979 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +24,8 @@
 		8BDF721A213063A400BF2979 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BDF721D213063A400BF2979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BDF721F213063A400BF2979 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A10995E06284EB01426D9804 /* Pods-serika.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serika.release.xcconfig"; path = "Pods/Target Support Files/Pods-serika/Pods-serika.release.xcconfig"; sourceTree = "<group>"; };
+		FF5CDA097192DDC63B6B6036 /* Pods-serika.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-serika.debug.xcconfig"; path = "Pods/Target Support Files/Pods-serika/Pods-serika.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				101BD78667C0F8C1A18D105F /* Pods_serika.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05C7967E5D07B8DAF3E5A5F5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FF5CDA097192DDC63B6B6036 /* Pods-serika.debug.xcconfig */,
+				A10995E06284EB01426D9804 /* Pods-serika.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		7B60B59FB6DB152DCEE588B4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8BDF7207213063A300BF2979 = {
 			isa = PBXGroup;
 			children = (
 				8BDF7212213063A300BF2979 /* serika */,
 				8BDF7211213063A300BF2979 /* Products */,
+				05C7967E5D07B8DAF3E5A5F5 /* Pods */,
+				7B60B59FB6DB152DCEE588B4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BDF7222213063A400BF2979 /* Build configuration list for PBXNativeTarget "serika" */;
 			buildPhases = (
+				2E4AABA02FE22F9042CCD8E0 /* [CP] Check Pods Manifest.lock */,
 				8BDF720C213063A300BF2979 /* Sources */,
 				8BDF720D213063A300BF2979 /* Frameworks */,
 				8BDF720E213063A300BF2979 /* Resources */,
+				EF893C749DCC2632FE88E23D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2E4AABA02FE22F9042CCD8E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-serika-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EF893C749DCC2632FE88E23D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-serika/Pods-serika-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-serika/Pods-serika-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8BDF720C213063A300BF2979 /* Sources */ = {
@@ -278,11 +347,13 @@
 		};
 		8BDF7223213063A400BF2979 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF5CDA097192DDC63B6B6036 /* Pods-serika.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AM4V7T2443;
 				INFOPLIST_FILE = serika/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,11 +367,13 @@
 		};
 		8BDF7224213063A400BF2979 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A10995E06284EB01426D9804 /* Pods-serika.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = AM4V7T2443;
 				INFOPLIST_FILE = serika/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
