@@ -21,7 +21,41 @@ class DownloadItemTableViewCell: UITableViewCell {
     @IBOutlet weak var downloadSpeedLabel: UILabel!
     @IBOutlet weak var uploadSpeedLabel: UILabel!
     
-    
+    var status: DownloadStatusCase = .empty {
+        didSet{
+            switch status {
+            case .stopped:
+                statusIcon.textColor = #colorLiteral(red: 0.9686274529, green: 0.78039217, blue: 0.3450980484, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .pause)
+            case .completed:
+                statusIcon.textColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .check)
+            case .error:
+                statusIcon.textColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .timesCircleO)
+            case .checkWait:
+                statusIcon.textColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .clockO)
+            case .check:
+                statusIcon.textColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .search)
+            case .downloadWait:
+                statusIcon.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .clockO)
+            case .downloading:
+                statusIcon.textColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .refresh)
+            case .seedingWait:
+                statusIcon.textColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .clockO)
+            case .seeding:
+                statusIcon.textColor = #colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1)
+                statusIcon.text = String.fontAwesomeIcon(name: .refresh)
+            default:
+                statusIcon.text = ""
+            }
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,7 +65,6 @@ class DownloadItemTableViewCell: UITableViewCell {
         uploadIcon.font = UIFont.fontAwesome(ofSize: 12.0)
         uploadIcon.text = String.fontAwesomeIcon(name: .arrowCircleUp)
         statusIcon.font = UIFont.fontAwesome(ofSize: 12.0)
-        statusIcon.text = String.fontAwesomeIcon(name: .refresh)
         downloadSpeedLabel.text = "---"
         uploadSpeedLabel.text = "---"
         titleLabel.text = "--------"
@@ -47,8 +80,29 @@ class DownloadItemTableViewCell: UITableViewCell {
 }
 
 public enum DownloadStatusCase: Int{
-    case pending = 0
-    case downloading = 1
-    case finished = 2
-    case completed = 3
+    case empty = -1
+    
+    //TR_STATUS_STOPPED = 0, /* Torrent is stopped */
+    case stopped = 0
+    case completed = 10
+    case error = 20
+    
+    //TR_STATUS_CHECK_WAIT = 1, /* Queued to check files */
+    case checkWait = 1
+    
+    //TR_STATUS_CHECK = 2, /* Checking files */
+    case check = 2
+    
+    //TR_STATUS_DOWNLOAD_WAIT = 3, /* Queued to download */
+    case downloadWait = 3
+    
+    //TR_STATUS_DOWNLOAD = 4, /* Downloading */
+    case downloading = 4
+    
+    //TR_STATUS_SEED_WAIT = 5, /* Queued to seed */
+    case seedingWait = 5
+    
+    //TR_STATUS_SEED = 6 /* Seeding */
+    case seeding = 6
+
 }

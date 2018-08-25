@@ -43,6 +43,15 @@ class MainViewController: UITableViewController {
 
         if let _torrent = TaskModel.shared.taskInformation?[indexPath.row] {
             cell.titleLabel.text = _torrent["name"].string
+            cell.progressIndicator.progress = _torrent["percentDone"].floatValue
+            cell.status = DownloadStatusCase(rawValue: _torrent["status"].int ?? 0)!
+            if (cell.status == .stopped){
+                if (_torrent["error"].int != 0){
+                    cell.status = .error
+                }else if (_torrent["isFinished"].bool == true) {
+                    cell.status = .completed
+                }
+            }
             
         }
 
@@ -50,49 +59,15 @@ class MainViewController: UITableViewController {
     }
 
     
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    func humanReadableSpeed(bytePerSecond: Int) -> String {
+        var holder = 0.0
+        if bytePerSecond == 0 {
+            return "0"
+        }
+        holder = bytePerSecond.
+        
+        
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

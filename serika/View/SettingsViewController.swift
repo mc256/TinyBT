@@ -21,7 +21,10 @@ class SettingsViewController: UITableViewController {
         loginCookieText.text = delegate.configuration?.cookieString
         
     }
-
+    @IBAction func cancelButtonClick(_ sender: UIBarButtonItem) {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
