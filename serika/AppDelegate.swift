@@ -11,11 +11,18 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    let appRoot = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+    
     var window: UIWindow?
-
+    var configuration: ConfigurationModel? = nil
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // ____________ BEGIN
+        configuration = ConfigurationModel.create(self)
+        TaskModel.shared.sessionStart()
+        // ____________ END
+        
         return true
     }
 

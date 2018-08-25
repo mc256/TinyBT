@@ -11,6 +11,8 @@
 		8B1D1D562130840B0064F1D3 /* DownloadItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */; };
 		8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D57213086B80064F1D3 /* MainViewController.swift */; };
 		8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */; };
+		8B5E4C822130D8F400FA0414 /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E4C812130D8F400FA0414 /* ConfigurationModel.swift */; };
+		8B7F173C2131CAC0006C525F /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F173B2131CAC0006C525F /* TaskModel.swift */; };
 		8BDF7214213063A300BF2979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF7213213063A300BF2979 /* AppDelegate.swift */; };
 		8BDF7219213063A300BF2979 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BDF7217213063A300BF2979 /* Main.storyboard */; };
 		8BDF721B213063A400BF2979 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BDF721A213063A400BF2979 /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadItemTableViewCell.swift; sourceTree = "<group>"; };
 		8B1D1D57213086B80064F1D3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8B5E4C812130D8F400FA0414 /* ConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationModel.swift; sourceTree = "<group>"; };
+		8B7F173B2131CAC0006C525F /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		8BDF7210213063A300BF2979 /* serika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serika.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDF7213213063A300BF2979 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BDF7218213063A300BF2979 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -80,6 +84,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8B5E4C802130D7DA00FA0414 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B5E4C812130D8F400FA0414 /* ConfigurationModel.swift */,
+				8B7F173B2131CAC0006C525F /* TaskModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		8BDF7207213063A300BF2979 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +114,7 @@
 		8BDF7212213063A300BF2979 /* serika */ = {
 			isa = PBXGroup;
 			children = (
+				8B5E4C802130D7DA00FA0414 /* Model */,
 				8B1D1D54213083910064F1D3 /* View */,
 				8BDF7213213063A300BF2979 /* AppDelegate.swift */,
 				8BDF7217213063A300BF2979 /* Main.storyboard */,
@@ -228,10 +242,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B7F173C2131CAC0006C525F /* TaskModel.swift in Sources */,
 				8B1D1D562130840B0064F1D3 /* DownloadItemTableViewCell.swift in Sources */,
 				8BDF7214213063A300BF2979 /* AppDelegate.swift in Sources */,
 				8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */,
 				8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */,
+				8B5E4C822130D8F400FA0414 /* ConfigurationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

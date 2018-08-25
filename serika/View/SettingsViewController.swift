@@ -9,32 +9,40 @@
 import UIKit
 
 class SettingsViewController: UITableViewController {
-
+    let delegate = UIApplication.shared.delegate as! AppDelegate
+    
+    @IBOutlet weak var rpcServerText: UITextField!
+    @IBOutlet weak var loginCookieText: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        rpcServerText.text = delegate.configuration?.rpcServer
+        loginCookieText.text = delegate.configuration?.cookieString
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    @IBAction func saveButtonClick(_ sender: UIBarButtonItem) {
+        delegate.configuration?.rpcServer = rpcServerText.text
+        delegate.configuration?.cookieString = loginCookieText.text
+        delegate.configuration?.save()
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return 2
     }
 
     /*
