@@ -13,6 +13,8 @@ class ConfigurationModel: NSObject, NSCoding {
     var delegate:AppDelegate? = nil
     var rpcServer:String? = nil
     var cookieString:String? = nil
+    var username:String? = nil
+    var password:String? = nil
     
     func encode(with aCoder: NSCoder) {
         if let _rpcServer = rpcServer {
@@ -20,6 +22,12 @@ class ConfigurationModel: NSObject, NSCoding {
         }
         if let _cookieString = cookieString {
             aCoder.encode(_cookieString, forKey: "cookieString")
+        }
+        if let _username = username {
+            aCoder.encode(_username, forKey:"username")
+        }
+        if let _password = password {
+            aCoder.encode(_password, forKey: "password")
         }
     }
     
@@ -30,6 +38,8 @@ class ConfigurationModel: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         self.rpcServer = aDecoder.decodeObject(forKey: "rpcServer") as? String
         self.cookieString = aDecoder.decodeObject(forKey: "cookieString") as? String
+        self.username = aDecoder.decodeObject(forKey: "username") as? String
+        self.password = aDecoder.decodeObject(forKey: "password") as? String
     }
     
     static func create(_ delegate:AppDelegate) ->  ConfigurationModel{

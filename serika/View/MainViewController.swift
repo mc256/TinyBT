@@ -12,18 +12,13 @@ class MainViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        TaskModel.shared.sessionStart()
         TaskModel.shared.taskStart(viewController: self)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -52,10 +47,60 @@ class MainViewController: UITableViewController {
                     cell.status = .completed
                 }
             }
-            
+            cell.uploadSpeedLabel.text = humanReadableSpeed(bytePerSecond: _torrent["rateUpload"].int ?? 0)
+            cell.downloadSpeedLabel.text = humanReadableSpeed(bytePerSecond: _torrent["rateDownload"].int ?? 0)
         }
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        presentDetail(indexPath: indexPath)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ShowDetailSegue" {
+            if let viewController = segue.destination as? DetailViewController {
+                guard let indexPath = sender as? IndexPath else{
+                    return
+                }
+                viewController.torrentInformation = TaskModel.shared.taskInformation?[indexPath.row]
+            }
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let cell = tableView.cellForRow(at: indexPath) as! DownloadItemTableViewCell
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Remove") { (action, indexPath) in
+            // TODO
+            
+        }
+        deleteAction.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
+        
+        var stateChangeAction: UITableViewRowAction?
+        switch cell.status {
+        case .completed, .stopped, .error:
+            stateChangeAction = UITableViewRowAction(style: .normal, title: "Resume", handler: { (action, indexPath) in
+                // TODO
+                
+            })
+            stateChangeAction!.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        default:
+            stateChangeAction = UITableViewRowAction(style: .normal, title: "Pause", handler: { (action, indexPath) in
+                // TODO
+                
+            })
+            stateChangeAction!.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        }
+        
+        let detailAction = UITableViewRowAction(style: .normal, title: "Detail") { (action, indexPath) in
+            self.presentDetail(indexPath: indexPath)
+        }
+        detailAction.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        
+        return [detailAction, stateChangeAction!, deleteAction]
     }
 
     
@@ -64,10 +109,23 @@ class MainViewController: UITableViewController {
         if bytePerSecond == 0 {
             return "0"
         }
-        holder = bytePerSecond.
-        
-        
-        
+        if (Double(bytePerSecond) / 1024.0 < 1) {
+            return String(bytePerSecond) + "B/s"
+        }
+        holder = Double(bytePerSecond) / 1024.0
+        if ( (holder / 1024.0)  < 1){
+            return String(format: "%.01fKB/s", holder)
+        }
+        holder = holder / 1024.0
+        if ( (holder / 1024.0)  < 1){
+            return String(format: "%.01fMB/s", holder)
+        }
+        holder = holder / 1024.0
+        return String(format: "%.01fGB/s", holder)
+    }
+    
+    func presentDetail(indexPath: IndexPath){
+        self.performSegue(withIdentifier: "ShowDetailSegue", sender: indexPath)
     }
 
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		101BD78667C0F8C1A18D105F /* Pods_serika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */; };
+		8B054A46213395400007B0B4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B054A45213395400007B0B4 /* DetailViewController.swift */; };
 		8B1D1D562130840B0064F1D3 /* DownloadItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */; };
 		8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D57213086B80064F1D3 /* MainViewController.swift */; };
 		8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */; };
@@ -21,6 +22,7 @@
 
 /* Begin PBXFileReference section */
 		73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B054A45213395400007B0B4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadItemTableViewCell.swift; sourceTree = "<group>"; };
 		8B1D1D57213086B80064F1D3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 				8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */,
 				8B1D1D57213086B80064F1D3 /* MainViewController.swift */,
 				8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */,
+				8B054A45213395400007B0B4 /* DetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,14 +223,12 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-serika/Pods-serika-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FontAwesome.swift/FontAwesome_swift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftSoup/SwiftSoup.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FontAwesome_swift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftSoup.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -248,6 +249,7 @@
 				8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */,
 				8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */,
 				8B5E4C822130D8F400FA0414 /* ConfigurationModel.swift in Sources */,
+				8B054A46213395400007B0B4 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

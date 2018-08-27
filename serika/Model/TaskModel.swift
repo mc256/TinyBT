@@ -54,9 +54,16 @@ class TaskModel: NSObject {
         ]
         
         // Fetch Request
-        Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
-            .validate(statusCode: 200...200)
-            .responseJSON(queue: operationQueue, completionHandler: self.sessionComplete)
+        if let _username = delegate.configuration?.username {
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .authenticate(user: _username, password: delegate.configuration?.password ?? "")
+                .validate(statusCode: 200...200)
+                .responseJSON(queue: operationQueue, completionHandler: self.sessionComplete)
+        }else{
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .validate(statusCode: 200...200)
+                .responseJSON(queue: operationQueue, completionHandler: self.sessionComplete)
+        }
         
     }
     
@@ -101,41 +108,29 @@ class TaskModel: NSObject {
             "arguments": [
                 "fields": [
                     "id",
-                    "addedDate",
                     "name",
-                    "totalSize",
                     "error",
                     "errorString",
-                    "eta",
                     "isFinished",
-                    "isStalled",
-                    "leftUntilDone",
-                    "metadataPercentComplete",
-                    "peersConnected",
-                    "peersGettingFromUs",
-                    "peersSendingToUs",
                     "percentDone",
-                    "queuePosition",
                     "rateDownload",
                     "rateUpload",
-                    "recheckProgress",
-                    "seedRatioMode",
-                    "seedRatioLimit",
-                    "sizeWhenDone",
-                    "status",
-                    "trackers",
-                    "downloadDir",
-                    "uploadedEver",
-                    "uploadRatio",
-                    "webseedsSendingToUs"
+                    "status"
                 ]
             ]
         ]
         
         // Fetch Request
-        Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
-            .validate(statusCode: 200...200)
-            .responseJSON(queue: operationQueue, completionHandler: self.taskComplete)
+        if let _username = delegate.configuration?.username {
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .authenticate(user: _username, password: delegate.configuration?.password ?? "")
+                .validate(statusCode: 200...200)
+                .responseJSON(queue: operationQueue, completionHandler: self.taskComplete)
+        }else{
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .validate(statusCode: 200...200)
+                .responseJSON(queue: operationQueue, completionHandler: self.taskComplete)
+        }
         
     }
     
@@ -148,6 +143,9 @@ class TaskModel: NSObject {
                     var buffer = _data["arguments"]["torrents"].array!
                     buffer.sort(by: {$0["name"] < $1["name"]})
                     DispatchQueue.main.sync {
+                        if viewController?.tableView.isEditing ?? true == true {
+                            return
+                        }
                         taskInformation = buffer
                         viewController?.tableView.reloadData()
                     }

@@ -20,7 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         // ____________ BEGIN
         configuration = ConfigurationModel.create(self)
-        TaskModel.shared.sessionStart()
         // ____________ END
         
         return true
