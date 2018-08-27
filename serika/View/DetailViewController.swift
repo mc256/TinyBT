@@ -12,18 +12,6 @@ import SwiftyJSON
 class DetailViewController: UITableViewController {
     // MARK: - Connections
     
-    @IBOutlet weak var torrentNameLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
-    @IBOutlet weak var sizeLabel: UILabel!
-    @IBOutlet weak var startTimeLabel: UILabel!
-    @IBOutlet weak var stateLabel: UILabel!
-    @IBOutlet weak var hashLabel: UILabel!
-    @IBOutlet weak var downloadLabel: UILabel!
-    @IBOutlet weak var uploadLabel: UILabel!
-    @IBOutlet weak var availabilityLabel: UILabel!
-    @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var peersLabel: UILabel!
-    
     var torrentInformation: JSON? = nil
     
     // MARK: - View Controller
@@ -42,7 +30,7 @@ class DetailViewController: UITableViewController {
     
     func updateInformation(){
         if let _torrentInformation = torrentInformation {
-            torrentNameLabel.text = _torrentInformation["name"].string
+            //torrentNameLabel.text = _torrentInformation["name"].string
         }
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 100.0;
@@ -79,6 +67,12 @@ class DetailViewController: UITableViewController {
         default:
             return 0
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LargeLabelCell", for: indexPath) as! LargeTableViewCell
+        
+        return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
