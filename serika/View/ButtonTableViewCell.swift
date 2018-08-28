@@ -10,12 +10,8 @@ import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
 
-    var actionDelegation:((Any)->Void)? = nil
-    
-    @IBOutlet weak var cellButton: UIButton!
-    @IBAction func buttonClick(_ sender: Any) {
-        actionDelegation?(sender)
-    }
+
+    @IBOutlet weak var buttonLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

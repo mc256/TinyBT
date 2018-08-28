@@ -258,6 +258,143 @@ class TaskModel: NSObject {
         detailTimer?.invalidate()
     }
     
+    // MARK: - Action
+    
+    func torrentPause(id: Int){
+        guard let _rpcServer = delegate.configuration?.rpcServer else {
+            return
+        }
+        
+        // Add Headers
+        let headers = [
+            "Content-Type":"application/json; charset=utf-8",
+            "X-Transmission-Session-Id":sessionId ?? "",
+            "Cookie":delegate.configuration?.cookieString ?? "",
+            ]
+        
+        // JSON Body
+        let body: [String : Any] = [
+            "method": "torrent-stop",
+            "arguments": [
+                "ids": [
+                    id
+                ]
+            ]
+        ]
+        
+        // Fetch Request
+        if let _username = delegate.configuration?.username {
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .authenticate(user: _username, password: delegate.configuration?.password ?? "")
+                .validate(statusCode: 200...200)
+        }else{
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .validate(statusCode: 200...200)
+        }
+    }
+    
+    func torrentResume(id: Int){
+        guard let _rpcServer = delegate.configuration?.rpcServer else {
+            return
+        }
+        
+        // Add Headers
+        let headers = [
+            "Content-Type":"application/json; charset=utf-8",
+            "X-Transmission-Session-Id":sessionId ?? "",
+            "Cookie":delegate.configuration?.cookieString ?? "",
+            ]
+        
+        // JSON Body
+        let body: [String : Any] = [
+            "method": "torrent-start",
+            "arguments": [
+                "ids": [
+                    id
+                ]
+            ]
+        ]
+        
+        // Fetch Request
+        if let _username = delegate.configuration?.username {
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .authenticate(user: _username, password: delegate.configuration?.password ?? "")
+                .validate(statusCode: 200...200)
+        }else{
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .validate(statusCode: 200...200)
+        }
+    }
+    
+    func torrentRemove(id: Int, removeFile: Bool = false){
+        
+        guard let _rpcServer = delegate.configuration?.rpcServer else {
+            return
+        }
+        
+        // Add Headers
+        let headers = [
+            "Content-Type":"application/json; charset=utf-8",
+            "X-Transmission-Session-Id":sessionId ?? "",
+            "Cookie":delegate.configuration?.cookieString ?? "",
+            ]
+        
+        // JSON Body
+        let body: [String : Any] = [
+            "method": "torrent-remove",
+            "arguments": [
+                "ids": [
+                    id
+                ],
+                "delete-local-data": removeFile
+            ]
+        ]
+        
+        // Fetch Request
+        if let _username = delegate.configuration?.username {
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .authenticate(user: _username, password: delegate.configuration?.password ?? "")
+                .validate(statusCode: 200...200)
+        }else{
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .validate(statusCode: 200...200)
+        }
+    }
+    
+    func torrentAdd(torrent: String, path:String){
+        guard let _rpcServer = delegate.configuration?.rpcServer else {
+            return
+        }
+        
+        // Add Headers
+        let headers = [
+            "Content-Type":"application/json; charset=utf-8",
+            "X-Transmission-Session-Id":sessionId ?? "",
+            "Cookie":delegate.configuration?.cookieString ?? "",
+            ]
+        
+        // JSON Body
+        let body: [String : Any] = [
+            "method": "torrent-add",
+            "arguments": [
+                "download-dir": path,
+                "filename": torrent,
+                "paused": "false"
+            ]
+        ]
+        
+        // Fetch Request
+        if let _username = delegate.configuration?.username {
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .authenticate(user: _username, password: delegate.configuration?.password ?? "")
+                .validate(statusCode: 200...200)
+        }else{
+            Alamofire.request(_rpcServer, method: .post, parameters: body, encoding: JSONEncoding.default, headers: headers)
+                .validate(statusCode: 200...200)
+        }
+        
+    }
+    
     // MARK: - Utility
     
     static func humanReadableSize(bytes: Int) -> String {

@@ -23,17 +23,38 @@ class DetailViewController: UITableViewController {
     let rowStyle:[[TableViewCellStyle]] = [
         [.large, .large, .small, .small, .small],
         [.small, .small, .small, .small, .small],
-        [.button, .buttonRed, .buttonRed]
+        [.button, .button, .buttonRed, .buttonRed]
     ]
     let rowTitle:[[String]] = [
         ["Torrent Name", "Location", "Added Time", "Size", "Status"],
         ["Progress", "Upload", "Download", "Peers", "Upload Ratio"],
-        ["Pause / Resume", "Delete", "Delete and Remove"]
+        ["Pause", "Resume", "Delete", "Delete and Remove"]
     ]
     let rowDataSource:[[String]] = [
         ["name", "downloadDir", "_addedDate", "_size", "_status"],
         ["_progress", "_uploadSpeed", "_downloadSpeed", "_peers", "_uploadRatio"],
-        ["","",""]
+        ["","","",""]
+    ]
+    let rowAction:[[((Int)->Bool)?]] = [
+        [nil, nil, nil, nil, nil],
+        [nil, nil, nil, nil, nil],
+        [
+            {(id) in
+                TaskModel.shared.torrentPause(id: id)
+                return false},
+            {(id) in
+                TaskModel.shared.torrentResume(id: id)
+                return false
+            },
+            {(id) in
+                TaskModel.shared.torrentRemove(id: id, removeFile: false)
+                return true
+            },
+            {(id) in
+                TaskModel.shared.torrentRemove(id: id, removeFile: true)
+                return true
+            },
+        ]
     ]
     
     // MARK: - View Controller
@@ -148,11 +169,11 @@ class DetailViewController: UITableViewController {
             cell = _cell
         case .button:
             let _cell = tableView.dequeueReusableCell(withIdentifier: "NormalButtonCell", for: indexPath) as! ButtonTableViewCell
-            _cell.cellButton.setTitle(rowTitle[indexPath.section][indexPath.row], for: .normal)
+            _cell.buttonLabel.text = rowTitle[indexPath.section][indexPath.row]
             cell = _cell
         case .buttonRed:
             let _cell = tableView.dequeueReusableCell(withIdentifier: "AlertButtonCell", for: indexPath) as! ButtonRedTableViewCell
-            _cell.cellButton.setTitle(rowTitle[indexPath.section][indexPath.row], for: .normal)
+            _cell.buttonLabel.text = rowTitle[indexPath.section][indexPath.row]
             cell = _cell
         }
         
@@ -161,6 +182,9 @@ class DetailViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        if rowAction[indexPath.section][indexPath.row]?(torrentInformation!["id"].intValue) == true {
+            navigationController?.popToRootViewController(animated: true)
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

@@ -74,8 +74,9 @@ class MainViewController: UITableViewController {
         let cell = tableView.cellForRow(at: indexPath) as! DownloadItemTableViewCell
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Remove") { (action, indexPath) in
-            // TODO
-            
+            if let _id = TaskModel.shared.taskInformation?[indexPath.row]["id"].int {
+                TaskModel.shared.torrentRemove(id: _id)
+            }
         }
         deleteAction.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)
         
@@ -83,14 +84,16 @@ class MainViewController: UITableViewController {
         switch cell.status {
         case .completed, .stopped, .error:
             stateChangeAction = UITableViewRowAction(style: .normal, title: "Resume", handler: { (action, indexPath) in
-                // TODO
-                
+                if let _id = TaskModel.shared.taskInformation?[indexPath.row]["id"].int {
+                    TaskModel.shared.torrentResume(id: _id)
+                }
             })
             stateChangeAction!.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         default:
             stateChangeAction = UITableViewRowAction(style: .normal, title: "Pause", handler: { (action, indexPath) in
-                // TODO
-                
+                if let _id = TaskModel.shared.taskInformation?[indexPath.row]["id"].int {
+                    TaskModel.shared.torrentPause(id: _id)
+                }
             })
             stateChangeAction!.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         }
