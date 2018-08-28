@@ -256,7 +256,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="tEQ-4s-pRf"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -276,19 +276,19 @@
                                     <outlet property="valueLabel" destination="AUk-Lj-kqG" id="Ttu-3J-ONW"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SmallLabelCell" id="ONz-dZ-l9O">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SmallLabelCell" id="ONz-dZ-l9O" customClass="SmallTableViewCell" customModule="serika" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="113.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ONz-dZ-l9O" id="UQd-jl-Gic">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hash" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSi-eh-uTq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Added Time" textAlignment="right" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xSi-eh-uTq">
                                             <rect key="frame" x="16" y="11" width="80" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="80" id="yDE-UA-hqx"/>
                                             </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -312,8 +312,12 @@
                                         <constraint firstItem="0EA-1o-eRZ" firstAttribute="top" secondItem="UQd-jl-Gic" secondAttribute="topMargin" id="oFd-bO-vjv"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="keyLabel" destination="xSi-eh-uTq" id="o7o-5f-XVd"/>
+                                    <outlet property="valueLabel" destination="0EA-1o-eRZ" id="uj2-PA-lgw"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NormalButtonCell" id="JNu-vh-mwS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="NormalButtonCell" id="JNu-vh-mwS" customClass="ButtonTableViewCell" customModule="serika" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="157.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JNu-vh-mwS" id="HaJ-aV-FHz">
@@ -327,6 +331,9 @@
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                             <state key="normal" title="Resume"/>
+                                            <connections>
+                                                <action selector="buttonClick:" destination="JNu-vh-mwS" eventType="touchUpInside" id="dN9-t8-uCC"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -336,8 +343,11 @@
                                         <constraint firstAttribute="trailing" secondItem="ODq-MD-reD" secondAttribute="trailing" constant="16" id="q38-0Z-YlF"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellButton" destination="ODq-MD-reD" id="7QO-Pt-z0F"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlertButtonCell" id="314-wG-vnS">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AlertButtonCell" id="314-wG-vnS" customClass="ButtonRedTableViewCell" customModule="serika" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="201.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="314-wG-vnS" id="UUI-y0-ndZ">
@@ -353,6 +363,9 @@
                                             <state key="normal" title="Remove">
                                                 <color key="titleColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="buttonClick:" destination="314-wG-vnS" eventType="touchUpInside" id="qb6-vb-qxI"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -362,6 +375,9 @@
                                         <constraint firstItem="PiL-er-aPb" firstAttribute="top" secondItem="UUI-y0-ndZ" secondAttribute="top" id="eVn-T9-LZK"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cellButton" destination="PiL-er-aPb" id="zfm-m1-Zts"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <sections/>
@@ -374,7 +390,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MTB-8y-T2I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2997.5999999999999" y="42.728635682158924"/>
+            <point key="canvasLocation" x="3223" y="63"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="jtd-6J-0IW">

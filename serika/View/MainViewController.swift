@@ -47,8 +47,8 @@ class MainViewController: UITableViewController {
                     cell.status = .completed
                 }
             }
-            cell.uploadSpeedLabel.text = humanReadableSpeed(bytePerSecond: _torrent["rateUpload"].int ?? 0)
-            cell.downloadSpeedLabel.text = humanReadableSpeed(bytePerSecond: _torrent["rateDownload"].int ?? 0)
+            cell.uploadSpeedLabel.text = TaskModel.humanReadableSpeed(bytesPerSecond: _torrent["rateUpload"].int ?? 0)
+            cell.downloadSpeedLabel.text = TaskModel.humanReadableSpeed(bytesPerSecond: _torrent["rateDownload"].int ?? 0)
         }
 
         return cell
@@ -103,26 +103,6 @@ class MainViewController: UITableViewController {
         return [detailAction, stateChangeAction!, deleteAction]
     }
 
-    
-    func humanReadableSpeed(bytePerSecond: Int) -> String {
-        var holder = 0.0
-        if bytePerSecond == 0 {
-            return "0"
-        }
-        if (Double(bytePerSecond) / 1024.0 < 1) {
-            return String(bytePerSecond) + "B/s"
-        }
-        holder = Double(bytePerSecond) / 1024.0
-        if ( (holder / 1024.0)  < 1){
-            return String(format: "%.01fKB/s", holder)
-        }
-        holder = holder / 1024.0
-        if ( (holder / 1024.0)  < 1){
-            return String(format: "%.01fMB/s", holder)
-        }
-        holder = holder / 1024.0
-        return String(format: "%.01fGB/s", holder)
-    }
     
     func presentDetail(indexPath: IndexPath){
         self.performSegue(withIdentifier: "ShowDetailSegue", sender: indexPath)

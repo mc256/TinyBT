@@ -13,6 +13,9 @@
 		8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D57213086B80064F1D3 /* MainViewController.swift */; };
 		8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */; };
 		8B527BB4213483D3005E2A79 /* LargeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B527BB3213483D3005E2A79 /* LargeTableViewCell.swift */; };
+		8B527BB62134A2A0005E2A79 /* SmallTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B527BB52134A2A0005E2A79 /* SmallTableViewCell.swift */; };
+		8B527BB82134A2AE005E2A79 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B527BB72134A2AE005E2A79 /* ButtonTableViewCell.swift */; };
+		8B527BBA2134A2D7005E2A79 /* ButtonRedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B527BB92134A2D7005E2A79 /* ButtonRedTableViewCell.swift */; };
 		8B5E4C822130D8F400FA0414 /* ConfigurationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5E4C812130D8F400FA0414 /* ConfigurationModel.swift */; };
 		8B7F173C2131CAC0006C525F /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7F173B2131CAC0006C525F /* TaskModel.swift */; };
 		8BDF7214213063A300BF2979 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF7213213063A300BF2979 /* AppDelegate.swift */; };
@@ -28,6 +31,9 @@
 		8B1D1D57213086B80064F1D3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8B527BB3213483D3005E2A79 /* LargeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTableViewCell.swift; sourceTree = "<group>"; };
+		8B527BB52134A2A0005E2A79 /* SmallTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallTableViewCell.swift; sourceTree = "<group>"; };
+		8B527BB72134A2AE005E2A79 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		8B527BB92134A2D7005E2A79 /* ButtonRedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonRedTableViewCell.swift; sourceTree = "<group>"; };
 		8B5E4C812130D8F400FA0414 /* ConfigurationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurationModel.swift; sourceTree = "<group>"; };
 		8B7F173B2131CAC0006C525F /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		8BDF7210213063A300BF2979 /* serika.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = serika.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +92,9 @@
 				8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */,
 				8B054A45213395400007B0B4 /* DetailViewController.swift */,
 				8B527BB3213483D3005E2A79 /* LargeTableViewCell.swift */,
+				8B527BB52134A2A0005E2A79 /* SmallTableViewCell.swift */,
+				8B527BB72134A2AE005E2A79 /* ButtonTableViewCell.swift */,
+				8B527BB92134A2D7005E2A79 /* ButtonRedTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,12 +255,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B527BBA2134A2D7005E2A79 /* ButtonRedTableViewCell.swift in Sources */,
 				8B7F173C2131CAC0006C525F /* TaskModel.swift in Sources */,
+				8B527BB62134A2A0005E2A79 /* SmallTableViewCell.swift in Sources */,
 				8B527BB4213483D3005E2A79 /* LargeTableViewCell.swift in Sources */,
 				8B1D1D562130840B0064F1D3 /* DownloadItemTableViewCell.swift in Sources */,
 				8BDF7214213063A300BF2979 /* AppDelegate.swift in Sources */,
 				8B1D1D5A2130AE240064F1D3 /* SettingsViewController.swift in Sources */,
 				8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */,
+				8B527BB82134A2AE005E2A79 /* ButtonTableViewCell.swift in Sources */,
 				8B5E4C822130D8F400FA0414 /* ConfigurationModel.swift in Sources */,
 				8B054A46213395400007B0B4 /* DetailViewController.swift in Sources */,
 			);

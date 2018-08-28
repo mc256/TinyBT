@@ -20,8 +20,12 @@ class TaskModel: NSObject {
     var sessionInformation: JSON? = nil
     var taskTimer: Timer? = nil
     var taskInformation: [JSON]? = nil
+    var detailTimer: Timer? = nil
+    var detailInformation: JSON? = nil
+
 
     var viewController: UITableViewController? = nil
+    var detailViewController: DetailViewController? = nil
     
     var operationQueue = DispatchQueue(label: "me.masterchan.serika.tasks")
     
@@ -156,7 +160,14 @@ class TaskModel: NSObject {
         }
     }
     
-    // MARK: - Detail Informatino
+    // MARK: - Detail Information
+    
+    func detailStart(viewController: DetailViewController, id: Int){
+        self.detailViewController = viewController
+        detailTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            TaskModel.shared.detailRequest(id: id)
+        }
+    }
     
     func detailRequest(id: Int){
         guard let _rpcServer = delegate.configuration?.rpcServer else {
@@ -175,7 +186,7 @@ class TaskModel: NSObject {
             "method": "torrent-get",
             "arguments": [
                 "ids": [
-                    61
+                    id
                 ],
                 "fields": [
                     "id",
@@ -222,7 +233,6 @@ class TaskModel: NSObject {
                 .responseJSON(queue: operationQueue, completionHandler: self.detailComplete)
         }
     
-
     }
     
     func detailComplete(response:DataResponse<Any>){
@@ -231,20 +241,65 @@ class TaskModel: NSObject {
             let data = try? JSON(data: response.data ?? Data())
             if let _data = data {
                 if _data["result"] == "success" {
-                    var buffer = _data["arguments"]["torrents"].array!
-                    buffer.sort(by: {$0["name"] < $1["name"]})
+                    let buffer = _data["arguments"]["torrents"][0]
                     DispatchQueue.main.sync {
-                        if viewController?.tableView.isEditing ?? true == true {
-                            return
-                        }
-                        taskInformation = buffer
-                        viewController?.tableView.reloadData()
+                        detailViewController?.torrentInformation = buffer
+                        detailViewController?.updateInformation()
                     }
                 }
             }
         case .failure:
             sessionId = response.response?.allHeaderFields["X-Transmission-Session-Id"] as? String ?? sessionId
         }
+    }
+    
+    func detailInactivative(){
+        detailViewController = nil
+        detailTimer?.invalidate()
+    }
+    
+    // MARK: - Utility
+    
+    static func humanReadableSize(bytes: Int) -> String {
+        var holder = 0.0
+        if bytes == 0 {
+            return "0"
+        }
+        if (Double(bytes) / 1024.0 < 1) {
+            return String(bytes) + "B"
+        }
+        holder = Double(bytes) / 1024.0
+        if ( (holder / 1024.0)  < 1){
+            return String(format: "%.01fKB", holder)
+        }
+        holder = holder / 1024.0
+        if ( (holder / 1024.0)  < 1){
+            return String(format: "%.01fMB", holder)
+        }
+        holder = holder / 1024.0
+        return String(format: "%.01fGB", holder)
+    }
+    
+    static func humanReadableSpeed(bytesPerSecond: Int) -> String {
+        if bytesPerSecond == 0 {
+            return "0"
+        }
+        return humanReadableSize(bytes:bytesPerSecond) + "/s"
+    }
+    
+    static func unixTimestampToLocalTime(time: Double) -> String {
+        let date = Date(timeIntervalSince1970: time)
+        
+        let formatter = DateFormatter()
+        formatter.formatterBehavior = .behavior10_4
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .medium
+        
+        return formatter.string(from: date)
+    }
+    
+    static func percentageToString(percentage: Double) -> String {
+        return String(format: "%0.2f%%", percentage * 100.0)
     }
     
     // MARK: - Singleton
