@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		101BD78667C0F8C1A18D105F /* Pods_serika.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */; };
+		8B00B30C21362042006F9596 /* AlertModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B00B30B21362042006F9596 /* AlertModel.swift */; };
 		8B054A46213395400007B0B4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B054A45213395400007B0B4 /* DetailViewController.swift */; };
 		8B1D1D562130840B0064F1D3 /* DownloadItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */; };
 		8B1D1D58213086B80064F1D3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1D1D57213086B80064F1D3 /* MainViewController.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B00B30B21362042006F9596 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		8B054A45213395400007B0B4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadItemTableViewCell.swift; sourceTree = "<group>"; };
 		8B1D1D57213086B80064F1D3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 			children = (
 				8B5E4C812130D8F400FA0414 /* ConfigurationModel.swift */,
 				8B7F173B2131CAC0006C525F /* TaskModel.swift */,
+				8B00B30B21362042006F9596 /* AlertModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B527BBA2134A2D7005E2A79 /* ButtonRedTableViewCell.swift in Sources */,
+				8B00B30C21362042006F9596 /* AlertModel.swift in Sources */,
 				8B7F173C2131CAC0006C525F /* TaskModel.swift in Sources */,
 				8B527BB62134A2A0005E2A79 /* SmallTableViewCell.swift in Sources */,
 				8B527BB4213483D3005E2A79 /* LargeTableViewCell.swift in Sources */,

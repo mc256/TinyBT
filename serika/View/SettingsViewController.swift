@@ -42,7 +42,7 @@ class SettingsViewController: UITableViewController {
         
         delegate.configuration?.save()
         TaskModel.shared.sessionStart()
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Table view data source

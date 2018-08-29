@@ -10,7 +10,6 @@ import UIKit
 
 class ButtonTableViewCell: UITableViewCell {
 
-
     @IBOutlet weak var buttonLabel: UILabel!
     
     override func awakeFromNib() {

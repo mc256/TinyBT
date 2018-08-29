@@ -21,6 +21,15 @@ class MainViewController: UITableViewController {
         super.didReceiveMemoryWarning()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        if delegate.configuration?.rpcServer == nil{
+            AlertModel.showAlertMessage(title: "Please configure your TransmissionBT RPC server!", message: "If you dont have TransmissionBT with the web interface installed, please install it first.", cancel: "Go to Settings") { (action) in
+                self.performSegue(withIdentifier: "SettingsSegue", sender: nil)
+            }
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -75,7 +84,17 @@ class MainViewController: UITableViewController {
         
         let deleteAction = UITableViewRowAction(style: .destructive, title: "Remove") { (action, indexPath) in
             if let _id = TaskModel.shared.taskInformation?[indexPath.row]["id"].int {
-                TaskModel.shared.torrentRemove(id: _id)
+                AlertModel.showAlertChoice(
+                    title: "Are you sure you want to remove this task from the list?",
+                    message: TaskModel.shared.taskInformation?[indexPath.row]["name"].stringValue ?? "",
+                    yes: "Remove",
+                    no: "Cancel",
+                    complete: { (yes) in
+                        if yes {
+                            TaskModel.shared.torrentRemove(id: _id)
+                        }
+                    }
+                )
             }
         }
         deleteAction.backgroundColor = #colorLiteral(red: 0.9372549057, green: 0.3490196168, blue: 0.1921568662, alpha: 1)

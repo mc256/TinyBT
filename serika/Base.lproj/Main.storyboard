@@ -130,7 +130,7 @@
                     <navigationItem key="navigationItem" title="Transmission" id="MkM-fE-NGi">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="740-gear-toolbar" id="AyV-Sq-5b0">
                             <connections>
-                                <segue destination="gSV-sA-ATd" kind="show" id="5T6-sc-acp"/>
+                                <segue destination="gSV-sA-ATd" kind="show" identifier="SettingsSegue" id="5T6-sc-acp"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" image="709-plus-toolbar" id="UK7-gG-bFY">
@@ -449,14 +449,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="RPC Server Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TpW-vP-XOP">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="RPC Server Address (HTTPS only)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TpW-vP-XOP">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="5Yb-tV-deT"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="url"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -481,7 +481,7 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" textContentType="username"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -506,7 +506,7 @@
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                    <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>

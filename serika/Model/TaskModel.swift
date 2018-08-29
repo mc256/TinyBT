@@ -24,7 +24,7 @@ class TaskModel: NSObject {
     var detailInformation: JSON? = nil
 
 
-    var viewController: UITableViewController? = nil
+    var mainViewController: UITableViewController? = nil
     var detailViewController: DetailViewController? = nil
     
     var operationQueue = DispatchQueue(label: "me.masterchan.serika.tasks")
@@ -88,8 +88,8 @@ class TaskModel: NSObject {
     // MARK: - Task List
     
     func taskStart(viewController: UITableViewController){
-        self.viewController = viewController
-        taskTimer = Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { _ in
+        self.mainViewController = viewController
+        taskTimer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: true) { _ in
             TaskModel.shared.taskRequest()
         }
     }
@@ -147,11 +147,11 @@ class TaskModel: NSObject {
                     var buffer = _data["arguments"]["torrents"].array!
                     buffer.sort(by: {$0["name"] < $1["name"]})
                     DispatchQueue.main.sync {
-                        if viewController?.tableView.isEditing ?? true == true {
+                        if mainViewController?.tableView.isEditing ?? true == true {
                             return
                         }
                         taskInformation = buffer
-                        viewController?.tableView.reloadData()
+                        mainViewController?.tableView.reloadData()
                     }
                 }
             }

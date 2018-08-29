@@ -35,24 +35,43 @@ class DetailViewController: UITableViewController {
         ["_progress", "_uploadSpeed", "_downloadSpeed", "_peers", "_uploadRatio"],
         ["","","",""]
     ]
-    let rowAction:[[((Int)->Bool)?]] = [
+    let rowAction:[[((Int, String, DetailViewController)->())?]] = [
         [nil, nil, nil, nil, nil],
         [nil, nil, nil, nil, nil],
         [
-            {(id) in
+            {(id, name, viewController) in
                 TaskModel.shared.torrentPause(id: id)
-                return false},
-            {(id) in
+            },
+            {(id, name, viewController) in
                 TaskModel.shared.torrentResume(id: id)
-                return false
             },
-            {(id) in
-                TaskModel.shared.torrentRemove(id: id, removeFile: false)
-                return true
+            {(id, name, viewController) in
+                AlertModel.showAlertChoice(
+                    title: "Are you sure you want to remove this task from the list?",
+                    message: name,
+                    yes: "Remove",
+                    no: "Cancel",
+                    complete: { (yes) in
+                        if yes {
+                            TaskModel.shared.torrentRemove(id: id, removeFile: false)
+                            viewController.navigationController?.popToRootViewController(animated: true)
+                        }
+                    }
+                )
             },
-            {(id) in
-                TaskModel.shared.torrentRemove(id: id, removeFile: true)
-                return true
+            {(id, name, viewController) in
+                AlertModel.showAlertChoice(
+                    title: "Are you sure you want to remove this task from the list and delete the data?",
+                    message: name,
+                    yes: "Remove and Delete",
+                    no: "Cancel",
+                    complete: { (yes) in
+                        if yes {
+                            TaskModel.shared.torrentRemove(id: id, removeFile: true)
+                            viewController.navigationController?.popToRootViewController(animated: true)
+                        }
+                    }
+                )
             },
         ]
     ]
@@ -144,6 +163,10 @@ class DetailViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    func actionRemove(){
+        
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -182,9 +205,7 @@ class DetailViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if rowAction[indexPath.section][indexPath.row]?(torrentInformation!["id"].intValue) == true {
-            navigationController?.popToRootViewController(animated: true)
-        }
+        rowAction[indexPath.section][indexPath.row]?(torrentInformation!["id"].intValue, torrentInformation!["name"].stringValue, self)
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

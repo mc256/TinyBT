@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="ipad10_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,16 +14,19 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="834" height="1112"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tsubasa" translatesAutoresizingMaskIntoConstraints="NO" id="jwj-eO-R9Y">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Serika v1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cth-2W-jzI">
-                                <rect key="frame" x="16" y="626" width="343" height="21"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tinybt_header" translatesAutoresizingMaskIntoConstraints="NO" id="TDM-95-nsc">
+                                <rect key="frame" x="0.0" y="490" width="834" height="132"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="AHc-0F-Ott"/>
+                                    <constraint firstAttribute="height" constant="132" id="aeo-n7-fhD"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TinyBT v1.0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cth-2W-jzI">
+                                <rect key="frame" x="20" y="1071" width="794" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="39z-1m-jmS"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleFootnote"/>
                                 <nil key="textColor"/>
@@ -32,23 +35,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cth-2W-jzI" secondAttribute="trailing" constant="16" id="7bS-3L-QkI"/>
-                            <constraint firstItem="jwj-eO-R9Y" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="7rt-j2-fT6"/>
-                            <constraint firstItem="jwj-eO-R9Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Cgk-tB-dh0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cth-2W-jzI" secondAttribute="bottom" constant="20" id="FiG-AK-EkN"/>
-                            <constraint firstItem="Cth-2W-jzI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Rgr-ph-gCI"/>
-                            <constraint firstItem="jwj-eO-R9Y" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="chJ-br-UTk"/>
-                            <constraint firstItem="jwj-eO-R9Y" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="tac-3m-8Bd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Cth-2W-jzI" secondAttribute="trailing" constant="20" id="JTG-No-tYN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Cth-2W-jzI" secondAttribute="bottom" constant="20" id="WIm-IM-ZPo"/>
+                            <constraint firstItem="TDM-95-nsc" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="WWu-lL-taY"/>
+                            <constraint firstItem="TDM-95-nsc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Y7c-QB-yre"/>
+                            <constraint firstItem="TDM-95-nsc" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="fuV-nI-cBG"/>
+                            <constraint firstItem="TDM-95-nsc" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="q7P-hM-nux"/>
+                            <constraint firstItem="Cth-2W-jzI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="reZ-ch-Qfu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="374.66266866566718"/>
+            <point key="canvasLocation" x="48.920863309352519" y="372.84172661870502"/>
         </scene>
     </scenes>
     <resources>
-        <image name="tsubasa" width="1131" height="1496"/>
+        <image name="tinybt_header" width="372" height="126"/>
     </resources>
 </document>
