@@ -30,6 +30,7 @@
 		73CFC63DDF47B73B7ECFC865 /* Pods_serika.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_serika.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B00B30B21362042006F9596 /* AlertModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertModel.swift; sourceTree = "<group>"; };
 		8B054A45213395400007B0B4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8B13D2B52138670400FCF2C1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B1D1D552130840B0064F1D3 /* DownloadItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadItemTableViewCell.swift; sourceTree = "<group>"; };
 		8B1D1D57213086B80064F1D3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B1D1D592130AE240064F1D3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +118,7 @@
 		8BDF7207213063A300BF2979 = {
 			isa = PBXGroup;
 			children = (
+				8B13D2B52138670400FCF2C1 /* README.md */,
 				8BDF7212213063A300BF2979 /* serika */,
 				8BDF7211213063A300BF2979 /* Products */,
 				05C7967E5D07B8DAF3E5A5F5 /* Pods */,

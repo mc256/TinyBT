@@ -140,7 +140,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="EMl-Ew-nBX" kind="show" identifier="ShowDetailSegue" id="CR8-wX-GF9"/>
+                        <segue destination="EMl-Ew-nBX" kind="showDetail" identifier="ShowDetailSegue" id="CR8-wX-GF9"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5I5-2n-OH7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -440,7 +440,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Server Configuration" id="LhM-4W-x8m">
+                            <tableViewSection headerTitle="Basic" id="LhM-4W-x8m">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Ar9-ei-n4b">
                                         <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
@@ -540,6 +540,27 @@
                                                 <constraint firstAttribute="bottom" secondItem="gVu-Ek-nna" secondAttribute="bottom" constant="6.5" id="oZE-sP-Fhp"/>
                                                 <constraint firstAttribute="trailing" secondItem="gVu-Ek-nna" secondAttribute="trailing" constant="16" id="roh-YH-KEl"/>
                                             </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Configuration" id="Plk-Du-3B3">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="5bs-kk-ST2" style="IBUITableViewCellStyleDefault" id="T6o-om-33Z">
+                                        <rect key="frame" x="0.0" y="287.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="T6o-om-33Z" id="sEm-J4-Drc">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Server" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5bs-kk-ST2">
+                                                    <rect key="frame" x="16" y="0.0" width="324" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
